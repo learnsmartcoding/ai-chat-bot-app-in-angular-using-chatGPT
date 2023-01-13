@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <br>
+                <div class="card">
+                    <h4 class="card-header center text-primary">Chatting With Mr BOT powered by ChatGPT</h4>
+                    <div class="card-body">
+                        <h6 class="card-title text-success center">You are now chatting with Mr.BOT by ChatGPT</h6>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <div class="frame-box">
+                                    <div *ngFor="let item of chatConversation">
+                                        <p class="card-text padding" [ngClass]="item.cssClass">
+                                            {{item.person}} :  {{getText(item.response)}}                                                                                                            
+                                        </p>
+                                        
+                                    </div>
+                                    <div><img src="../../assets/ZNeT.gif" *ngIf="showSpinner" width="50px" height="50px"></div>
+                                    
+                                </div>
+                                <br>
+                                    <textarea row="3" cols="15" class="form-control" [(ngModel)]="promptText" placeholder="Start by asking what you are looking for"></textarea>
+                                    <br>
+                                        <button class="btn btn-primary push-right" (click)="checkResponse()">Send</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                      
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            

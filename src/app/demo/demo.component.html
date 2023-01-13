@@ -1,0 +1,59 @@
+<div class="container">
+    <h2>
+       Ask anything to ChatGPT
+    </h2>
+    <div>
+        <p>This is a demo app to see how powerful ChatGPT answers your questions to technology.
+        </p>
+    </div>
+    <hr>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div
+                    class="form-group">
+                    <h3>Request prompt for ChatGPT AI</h3><hr>
+                    <!-- <label for="name">Prompt</label> -->
+                    <textarea rows="10" placeholder="Enter your prompt here" class="form-control" cols="6" [(ngModel)]="promptText"></textarea>
+
+                </div>
+                <div>
+                    <br>
+                        <button class="btn btn-primary" (click)="checkResponse()">
+                            Check Response
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3>Response from ChatGPT AI</h3><hr>
+                    <h4 *ngIf="showSpinner">Processing, please wait...</h4>
+                    <div *ngFor="let choice of response?.choices">
+                        <p *ngFor="let data of getText(choice.text)" class="responseStyle">
+                            {{data}}
+                        <br>
+                        </p>                        
+                    </div>
+                </div>
+
+
+            </div>
+            <br>
+                <h3>Models</h3>
+                <br>
+                    <div class="row">
+                        <div class="col-md-6" *ngFor="let item of gptModels">
+                            <div class="card">
+                                <h5 class="card-header">Name -
+                                    {{item.model}}</h5>
+                                <div class="card-body">
+                                    <h5 class="card-title">Description</h5>
+                                    <p class="card-text">{{item.description}}</p>
+                                    <p>{{item.maxRequest}}</p>
+                                    <a href="https://beta.openai.com/docs/models/gpt-3" class="btn btn-primary">More details</a>
+                                </div>
+                            </div>
+                            <br></div>
+
+                        </div>
+                    </div>
+
